@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public GameObject pauseText;
+
     private bool isPaused = false;
 
     void Update()
@@ -17,6 +19,11 @@ public class PauseManager : MonoBehaviour
         isPaused = !isPaused;
 
         Time.timeScale = isPaused ? 0f : 1f;
+
+        if (pauseText != null)
+        {
+            pauseText.SetActive(isPaused);
+        }
 
         Debug.Log(isPaused ? "Game Paused" : "Game Resumed");
     }
