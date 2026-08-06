@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pauseText;
+    public GameObject pauseMenu;
 
     private bool isPaused = false;
 
@@ -20,12 +20,10 @@ public class PauseManager : MonoBehaviour
 
         Time.timeScale = isPaused ? 0f : 1f;
 
-        if (pauseText != null)
+        if (pauseMenu != null)
         {
-            pauseText.SetActive(isPaused);
+            pauseMenu.SetActive(isPaused);
         }
-
-        Debug.Log(isPaused ? "Game Paused" : "Game Resumed");
     }
 
     private void OnDisable()
