@@ -26,6 +26,22 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void ResumeGame()
+    {
+        if (isPaused)
+        {
+            TogglePause();
+        }
+    }
+
+    public void QuitGame()
+    {
+        Time.timeScale = 1f;
+        Application.Quit();
+
+        Debug.Log("Quit Game");
+    }
+
     private void OnDisable()
     {
         Time.timeScale = 1f;
