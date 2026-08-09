@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public float attackRange = 1f;
+    public GameObject attackHitbox;
     public float attackCooldown = 0.3f;
+    public float attackDuration = 0.15f;
 
     private float lastAttackTime;
+
+    void Start()
+    {
+        attackHitbox.SetActive(false);
+    }
 
     void Update()
     {
@@ -24,6 +30,15 @@ public class AttackController : MonoBehaviour
 
         lastAttackTime = Time.time;
 
+        attackHitbox.SetActive(true);
+
+        Invoke(nameof(EndAttack), attackDuration);
+
         Debug.Log("Player attacked!");
+    }
+
+    private void EndAttack()
+    {
+        attackHitbox.SetActive(false);
     }
 }
