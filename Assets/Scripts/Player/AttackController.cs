@@ -5,12 +5,16 @@ public class AttackController : MonoBehaviour
     public GameObject attackHitbox;
     public float attackCooldown = 0.3f;
     public float attackDuration = 0.15f;
+    public float attackDistance = 0.6f;
 
     private float lastAttackTime;
+
+    private PlayerController playerController;
 
     void Start()
     {
         attackHitbox.SetActive(false);
+        playerController = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -27,6 +31,10 @@ public class AttackController : MonoBehaviour
         {
             return;
         }
+
+        Vector2 direction = playerController.GetLastMoveDirection();
+
+        attackHitbox.transform.localPosition = direction * attackDistance;
 
         lastAttackTime = Time.time;
 
