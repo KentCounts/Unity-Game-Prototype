@@ -7,6 +7,8 @@ public class AttackController : MonoBehaviour
     public float attackDuration = 0.15f;
     public float attackDistance = 0.6f;
 
+    public int attackDamage = 1;
+
     private float lastAttackTime;
 
     private PlayerController playerController;
