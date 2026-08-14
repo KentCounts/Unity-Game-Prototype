@@ -7,10 +7,14 @@ public class EnemyController : MonoBehaviour
     public float stoppingDistance = 1f;
 
     private Transform player;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
+
+        GameObject playerObject =
+            GameObject.FindGameObjectWithTag("Player");
 
         if (playerObject != null)
         {
@@ -18,7 +22,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (player == null)
         {
@@ -33,12 +37,14 @@ public class EnemyController : MonoBehaviour
         if (distanceToPlayer <= detectionRange &&
             distanceToPlayer > stoppingDistance)
         {
-            Vector2 direction = (
-                player.position - transform.position
-            ).normalized;
+            Vector2 direction =
+                (player.position - transform.position).normalized;
 
-            transform.position +=
-                (Vector3)direction * moveSpeed * Time.deltaTime;
+            rb.linearVelocity = direction * moveSpeed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }
