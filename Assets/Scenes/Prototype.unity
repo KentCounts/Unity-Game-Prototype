@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 963890186}
   - component: {fileID: 963890190}
   - component: {fileID: 963890191}
+  - component: {fileID: 963890192}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -891,6 +892,19 @@ MonoBehaviour:
   attackDuration: 0.15
   attackDistance: 0.6
   attackDamage: 1
+--- !u!114 &963890192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963890185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab7da05dfceaf43b64c829c321ffc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 3
 --- !u!1 &1013841417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5e66a381bf2984abc67e453b7d8ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackHitbox
+  damage: 1
 --- !u!114 &1163745583
 MonoBehaviour:
   m_ObjectHideFlags: 0
