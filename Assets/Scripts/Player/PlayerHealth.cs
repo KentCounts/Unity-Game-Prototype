@@ -29,4 +29,14 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player has no health remaining.");
         }
     }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }
