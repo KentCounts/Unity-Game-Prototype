@@ -12,15 +12,22 @@ public class AttackController : MonoBehaviour
     private float lastAttackTime;
 
     private PlayerController playerController;
+    private PlayerHealth playerHealth;
 
     void Start()
     {
         attackHitbox.SetActive(false);
         playerController = GetComponent<PlayerController>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
+        if (playerHealth.IsDead())
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Attack();

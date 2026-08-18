@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 3;
 
     private int currentHealth;
+    private bool dead = false;
 
     void Start()
     {
@@ -15,6 +16,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (dead)
+        {
+            return;
+        }
+
         currentHealth -= damage;
 
         Debug.Log(
@@ -25,9 +31,20 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-
-            Debug.Log("Player has no health remaining.");
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        dead = true;
+
+        Debug.Log("Player has died.");
+    }
+
+    public bool IsDead()
+    {
+        return dead;
     }
 
     public int GetCurrentHealth()
